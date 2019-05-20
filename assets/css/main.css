@@ -210,7 +210,8 @@
 			#nextt{
 				position: absolute!important;
 				z-index: 1000000;
-				display: flow-root!important;
+				display: block!important;
+				margin-top: -65vh!important;
 			}
 			#here{
 				width: 100vw!important;
