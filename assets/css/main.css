@@ -204,11 +204,12 @@
 			.insta{
 				padding-left: 0;
 			}
-			#nav{
+			/* #nav{
 				display: none;
-			}
+			} */
 			#nextt{
-				margin-top: 50vh!important;
+				position: absolute!important;
+				z-index: 1000000;
 				display: block!important;
 			}
 			#here{
