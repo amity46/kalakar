@@ -207,7 +207,7 @@
 			#nextt{
 				position: absolute!important;
 				z-index: 1000000;
-				display: inline-flex!important;
+				display: block!important;
 				margin-top: 50vh;
 			}
 		}
