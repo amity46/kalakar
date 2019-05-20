@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600");
+
 html, body{
     margin: 0px;
+    font-family: "Nunito Sans", Arial, Helvetica, sans-serif!important;
+    background-color: #191919!important;
 }
 #main{
     height: 75vh;
@@ -8,18 +12,30 @@ html, body{
 }
 #here{
     height: auto;
-    width: 50vw;
+    width: 75vw;
     color: black;
     background-color: #ffffff;
-    margin-left: 23vw;
+    margin-left: 12vw;
     text-align: center;
+    padding: 5em;
+}
+#here h1{
+    text-decoration: underline;
 }
 #here p:nth-child(2){
-    font-size: 2vh;
+    font-size: 1.25vw;
     font-style: normal!important;
 }
 #here p:nth-child(2) img{
     max-width: 50vw;
     max-height: 50vh;
     display: inline-flexbox;
+}
+#here h1:hover{
+    color: crimson;
+    cursor: default;
+}
+#here p:nth-child(2) h3:hover{
+    color: lightskyblue;
+    cursor: default;
 }
