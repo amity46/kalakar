@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Kalakar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="https://raw.githubusercontent.com/amity46/kalakar/master/favicon.png" />
+	</head>
+	<style>
+
+            *{
+                margin: 0px;
+            }
+            #content{
+				height: auto!important;
+                text-align: center;
+            }
+            .text{
+                color: black;
+                font-size: 0.75vw;
+                text-align: center;
+            }
+            .parentt{
+                text-align: center;
+                display: inline-block;
+            }
+            iframe{
+                border: none;
+                padding: 10px;
+                outline: none;
+            }
+            #content a{
+                text-decoration: none;
+                color: cornflowerblue;
+            }
+			body{
+				overflow-x: hidden;
+
+			}
+
+
+        </style>
+	<body>
+		<div class="page-wrap">
+
+			<!-- Nav -->
+			<div class="sticky-footer">
+    
+				<div class="one-fourth" id="hom"><a href="index.html"><span class="icon fa-home fixx"></span></a>
+				  <p>Home</p>
+				</div>
+				
+				<div class="one-fourth" id="gall"><a href="gallery.html"><span class="icon fa-camera-retro fixx"></span></a>
+				  <p>Gallery</p>
+				</div>
+
+				<div class="one-fourth" id="gen"><a href="competition.html"><span class="icon fa-trophy fixx active"></span></a>
+					<p>Competition</p>
+				  </div>
+				
+				<div class="one-fourth" id="sub"><a href="submit.html"><span class="icon fa-file-text-o fixx"></span></a>
+				  <p>Submit</p>
+				</div>
+				
+				
+				<div class="one-fourth" id="blo"><a href="blog.html"><span class="icon fa-newspaper-o fixx"></span></a>
+					<p>Blog</p>
+				  </div>
+			  </div>
+
+			<!-- Main -->
+				<section id="main">
+					<section id="banner">
+						<div class="inner">
+							<h1>Kalakar</h1>
+							<p>An Amity International School - 46 initiative</p>
+							<ul class="actions">
+								<li><a href="#abt" class="button alt scrolly big">Continue</a></li>
+							</ul>
+						</div>
+					</section>
+
+
+					<!-- Section -->
+						<section id="abt">
+							<div class="inner">
+								<header>
+									<h1>Generic</h1>
+								</header>
+										<p>Hola, Amigos!<br>
+										We're organinsing a competition, creativity has no restrictions...<br>
+									Get a chance to get featured on Glocal Amitians and of course, get your photoshoot done<br>
+								On the signature red brick wall, ohh and no photo limits :)<br>
+								The 5 day competition starts on <b>3rd Sept'19 11:59 pm</b> and goes on till <b>8th Sept'19 11:59 pm</b></p>
+									</div>
+									
+								</section>
+							</div>
+							<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase.js"></script>
+							<div id="content" style="display:block; width: 100vw;height: 100vh;"></div>
+				
+						</section>
+
+					<!-- Contact -->
+						<section id="contact">
+							<!-- Social -->
+								<div class="social column">
+										<h3>About Us</h3>
+										<p>We believe that art is for everyone, and we're creating the cultural context for how it is created, discovered, and shared. Kalakar is a social network for artists and art enthusiasts, and a platform for emerging and established artists to exhibit, promote, and share their works with an enthusiastic, art-centric community. 
+	
+											</p>
+										<p>People can even buy some artwork by contacting the artists. The beginners can also get great inspiration from some leading artists. Our motive is to connect people from all around the globe, so that young artists can showcase their talent through the help of technology.</p>
+										<h3>Follow Me</h3>
+									<ul class="icons">
+										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</div>
+
+							<!-- Form -->
+								<div class="column">
+									<h3>Get in Touch</h3>
+									<form action="#" method="post">
+										<div class="field half first">
+											<label for="name">Name</label>
+											<input name="name" id="name" type="text" placeholder="Name">
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input name="email" id="email" type="email" placeholder="Email">
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+										</div>
+										<ul class="actions">
+											<li><input value="Send Message" class="button" type="submit"></li>
+										</ul>
+									</form>
+								</div>
+
+						</section>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; AISG-46
+							</div>
+						</footer>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+					var config = {
+						apiKey: "AIzaSyBHw3TVBNS4blBARWIMhtJzDmrvmLU2hyc",
+						authDomain: "compkalakar1.firebaseapp.com",
+						databaseURL: "https://compkalakar1.firebaseio.com",
+						projectId: "compkalakar1",
+						storageBucket: "compkalakar1.appspot.com",
+						messagingSenderId: "693710851943",
+						appID: "1:693710851943:web:41fa5ac92d0d4460",
+					};
+					firebase.initializeApp(config);
+					var db = firebase.database();
+					const dataa = document.querySelector("#content");
+					var rootref = db.ref().orderByChild('likes');
+					rootref.once("value")
+						.then(function(snapshot) {
+							snapshot.forEach(function(childSnapshot) {
+								var key = childSnapshot.key;
+								var childData = childSnapshot.val();
+								var name = childData.name;
+								var likes = childData.likes;
+								var section = childData.section;
+								var submission = childData.submission;
+								var grade = childData.class;
+								var supporturl = childData.supporturl;
+								var n = submission.search("id");
+								var h = submission.slice(n+3);
+								var embedsub = "https://drive.google.com/file/d/" + h + "/preview"
+								var hyp = "<a target = '_blank' href='" + embedsub + "'>" + "View Enlarged" + "</a>"
+								console.log(key, childData);
+								let parentele = document.createElement('div');
+								parentele.classList.add("parentt");
+								let ele = document.createElement('div');
+								ele.classList.add("text");
+								let frame = document.createElement('iframe');
+								ele.innerHTML = name + " | " + grade + "-" + section + " | " + likes + " Likes" + " | " + hyp;
+								frame.setAttribute("src", embedsub);
+								frame.setAttribute("height", 300);
+								frame.setAttribute("width", 300);
+								parentele.appendChild(frame);
+								parentele.appendChild(ele);
+								dataa.insertBefore(parentele, dataa.firstChild);
+							});
+						});
+					</script>
+
+	</body>
+</html>
