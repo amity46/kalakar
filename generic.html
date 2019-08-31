@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Snapshot by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Kalakar</title>
@@ -12,6 +7,39 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" href="https://raw.githubusercontent.com/amity46/kalakar/master/favicon.png" />
 	</head>
+	<style>
+
+            *{
+                margin: 0px;
+            }
+            #content{
+                text-align: center;
+            }
+            .text{
+                color: black;
+                font-size: 0.75vw;
+                text-align: center;
+            }
+            .parentt{
+                text-align: center;
+                display: inline-block;
+            }
+            iframe{
+                border: none;
+                padding: 10px;
+                outline: none;
+            }
+            #content a{
+                text-decoration: none;
+                color: cornflowerblue;
+            }
+			body{
+				overflow-x: hidden;
+
+			}
+
+
+        </style>
 	<body>
 		<div class="page-wrap">
 
@@ -57,27 +85,18 @@
 								<header>
 									<h1>Generic</h1>
 								</header>
-								<!-- <p>Faucibus parturient mus phasellus vestibulum suspendisse dui vel ridiculus nibh diam placerat tellus scelerisque facilisi mus vestibulum arcu mus praesent in blandit. Conubia ullamcorper cum rhoncus vitae dapibus venenatis integer in donec egestas lacus nibh vestibulum habitasse accumsan parturient malesuada sociis auctor scelerisque vehicula urna eu proin euismod. Id facilisi suspendisse parturient leo mus condimentum natoque scelerisque ullamcorper odio tristique ultricies arcu ac condimentum facilisi scelerisque class commodo. Scelerisque sagittis magna mi duis iaculis id erat pharetra vestibulum condimentum hac suspendisse tempor leo aliquet penatibus parturient donec parturient parturient. Vehicula suspendisse sem a adipiscing est ad donec ultricies senectus magnis convallis a fringilla adipiscing vulputate dui elementum diam ipsum eleifend condimentum placerat facilisi viverra mollis scelerisque. Commodo cum vestibulum hendrerit sit condimentum at rutrum vulputate scelerisque erat convallis himenaeos consequat a hac ultrices nam vel suspendisse nascetur dictum vulputate sed at.</p>
-								<h2>Ultricies Senectus Magnis</h2>
-								<p>Scelerisque sagittis magna mi duis iaculis id erat pharetra vestibulum condimentum hac suspendisse tempor leo aliquet penatibus parturient donec parturient parturient. Vehicula suspendisse sem a adipiscing est ad donec ultricies senectus magnis convallis a fringilla adipiscing vulputate dui elementum diam ipsum eleifend condimentum placerat facilisi viverra mollis scelerisque. Commodo cum vestibulum hendrerit sit condimentum at rutrum vulputate scelerisque erat convallis himenaeos consequat a hac ultrices nam vel suspendisse nascetur dictum vulputate sed at.</p>
-								<section class="columns double">
-									<div class="column">
-										<span class="image left special"><img src="images/pic01.jpg" alt="" /></span>
-										<h3>Parturient Consequat Neque</h3>
-										<p>
-											Adipiscing dis a mus a convallis condimentum molestie penatibus iaculis pulvinar vestibulum enim lacus suscipit mi dictumst hendrerit sit condimentum at rutrum vulputate vestibulum habitasse nam fusce a nascetur. Ut ullamcorper suspendisse malesuada tempus vestibulum commodo habitasse suspendisse magnis.
-										</p>
+										<p>Hola, Amigos!<br>
+										We're organinsing a competition, creativity has no restrictions...<br>
+									Get a chance to get featured on Glocal Amitians and of course, get your photoshoot done<br>
+								On the signature red brick wall, ohh and no photo limits :)<br>
+								The 5 day competition starts on <b>3rd Sept'19 11:59 pm</b> and goes on till <b>8th Sept'19 11:59 pm</b></p>
 									</div>
-									<div class="column">
-										<span class="image left special"><img src="images/pic02.jpg" alt="" /></span>
-										<h3>Ridiculus Torquent Quam Accumsan</h3>
-										<p>
-											At sem phasellus elit class dapibus lectus posuere donec morbi in cras commodo faucibus ipsum vehicula fringilla. Risus hendrerit sit condimentum at rutrum vulputate fringilla dis curae metus ipsum imperdiet vulputate sapien dolorem ligula sapien curae consequat vestibulum urna. Nulla vulputate cum augue non arcu.
-										</p> -->
-										<p>Page Under Development</p>
-									</div>
+									
 								</section>
 							</div>
+							<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase.js"></script>
+							<div id="content" style="display:block; width: 100vw;height: 100vh;"></div>
+				
 						</section>
 
 					<!-- Contact -->
@@ -137,6 +156,51 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+					var config = {
+						apiKey: "AIzaSyBHw3TVBNS4blBARWIMhtJzDmrvmLU2hyc",
+						authDomain: "compkalakar1.firebaseapp.com",
+						databaseURL: "https://compkalakar1.firebaseio.com",
+						projectId: "compkalakar1",
+						storageBucket: "compkalakar1.appspot.com",
+						messagingSenderId: "693710851943",
+						appID: "1:693710851943:web:41fa5ac92d0d4460",
+					};
+					firebase.initializeApp(config);
+					var db = firebase.database();
+					const dataa = document.querySelector("#content");
+					var rootref = db.ref().orderByChild('likes');
+					rootref.once("value")
+						.then(function(snapshot) {
+							snapshot.forEach(function(childSnapshot) {
+								var key = childSnapshot.key;
+								var childData = childSnapshot.val();
+								var name = childData.name;
+								var likes = childData.likes;
+								var section = childData.section;
+								var submission = childData.submission;
+								var grade = childData.class;
+								var supporturl = childData.supporturl;
+								var n = submission.search("id");
+								var h = submission.slice(n+3);
+								var embedsub = "https://drive.google.com/file/d/" + h + "/preview"
+								var hyp = "<a target = '_blank' href='" + embedsub + "'>" + "View Enlarged" + "</a>"
+								console.log(key, childData);
+								let parentele = document.createElement('div');
+								parentele.classList.add("parentt");
+								let ele = document.createElement('div');
+								ele.classList.add("text");
+								let frame = document.createElement('iframe');
+								ele.innerHTML = name + " | " + grade + "-" + section + " | " + likes + " Likes" + " | " + hyp;
+								frame.setAttribute("src", embedsub);
+								frame.setAttribute("height", 300);
+								frame.setAttribute("width", 300);
+								parentele.appendChild(frame);
+								parentele.appendChild(ele);
+								dataa.insertBefore(parentele, dataa.firstChild);
+							});
+						});
+					</script>
 
 	</body>
 </html>
