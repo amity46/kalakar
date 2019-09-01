@@ -21,6 +21,21 @@
                 font-size: 0.75vw;
                 text-align: center;
             }
+			@media only screen and (min-device-width: 300px) and (max-device-width: 450px){
+				.text{
+					font-size: 3vw;
+				}
+			}
+			@media only screen and (min-device-width: 450px) and (max-device-width: 700px){
+				.text{
+					font-size: 2vw;
+				}
+			}
+			@media only screen and (min-device-width: 700px) and (max-device-width: 950px){
+				.text{
+					font-size: 1.25vw;
+				}
+			}
             .parentt{
                 text-align: center;
                 display: inline-block;
@@ -36,6 +51,9 @@
             }
 			body{
 				overflow-x: hidden;
+			}
+			iframe{
+				overflow: hidden;
 			}
 
 
@@ -198,6 +216,7 @@
 								frame.setAttribute("src", embedsub);
 								frame.setAttribute("height", 300);
 								frame.setAttribute("width", 300);
+								frame.setAttribute("scrolling", "no");
 								parentele.appendChild(frame);
 								parentele.appendChild(ele);
 								dataa.insertBefore(parentele, dataa.firstChild);
