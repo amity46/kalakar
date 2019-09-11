@@ -117,9 +117,13 @@
 									
 								</section>
 							</div>
+							<div id="content" style="display:block; width: 100vw;height: 100vh;">
+						<center>Category: Art
 							<script src="https://www.gstatic.com/firebasejs/6.4.2/firebase.js"></script>
-							<div id="content" style="display:block; width: 100vw;height: 100vh;"></div>
-				
+							<div id="art"></div><br>Category: Photography
+							<div id="photography"></div>
+						</center>
+							</div>
 						</section>
 
 					<!-- Contact -->
@@ -191,8 +195,8 @@
 					};
 					firebase.initializeApp(config);
 					var db = firebase.database();
-					const dataa = document.querySelector("#content");
-					var rootref = db.ref().orderByChild('likes');
+					const dataa = document.querySelector("#art");
+					var rootref = db.ref().orderByChild('category').equalTo('Art');
 					rootref.once("value")
 						.then(function(snapshot) {
 							snapshot.forEach(function(childSnapshot) {
@@ -222,6 +226,39 @@
 								parentele.appendChild(frame);
 								parentele.appendChild(ele);
 								dataa.insertBefore(parentele, dataa.firstChild);
+							});
+						});
+					const dat1 = document.querySelector("#photography");
+					var rootrefph = db.ref().orderByChild('category').equalTo('Photography');
+					rootrefph.once("value")
+						.then(function(snapshot) {
+							snapshot.forEach(function(childSnapshot) {
+								var key = childSnapshot.key;
+								var childData = childSnapshot.val();
+								var name = childData.name;
+								var likes = childData.likes;
+								var section = childData.section;
+								var submission = childData.submission;
+								var grade = childData.class;
+								var supporturl = childData.supporturl;
+								var n = submission.search("id");
+								var h = submission.slice(n+3);
+								var embedsub = "https://drive.google.com/file/d/" + h + "/preview"
+								var hyp = "<a target = '_blank' href='" + embedsub + "'>" + "View Enlarged" + "</a>"
+								console.log(key, childData);
+								let parentele = document.createElement('div');
+								parentele.classList.add("parentt");
+								let ele = document.createElement('div');
+								ele.classList.add("text");
+								let frame = document.createElement('iframe');
+								ele.innerHTML = name + " | " + grade + "-" + section + " | " + likes + " Likes" + " | " + hyp;
+								frame.setAttribute("src", embedsub);
+								frame.setAttribute("height", 300);
+								frame.setAttribute("width", 300);
+								frame.setAttribute("scrolling", "no");
+								parentele.appendChild(frame);
+								parentele.appendChild(ele);
+								dat1.insertBefore(parentele, dat1.firstChild);
 							});
 						});
 					</script>
