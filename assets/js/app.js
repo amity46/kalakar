@@ -1,7 +1,7 @@
 const dataa = document.querySelector("#here");
 
 
-db.collection("blogs").get().then((snapshot) => {
+db.collection("blogs").orderBy("title", "desc").get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         let p1 = document.createElement('div');
         p1.setAttribute('id', doc.id)
