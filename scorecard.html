@@ -6,9 +6,13 @@
     </head>
     <body>
         <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase.js"></script>
+        <div>ART</div>
         <div id="scoreboard"></div>
     </body>
     <script>
+        dict = {};
+        lis_likes = [];
+        holder = []
     	var config = {
 		apiKey: "AIzaSyBHw3TVBNS4blBARWIMhtJzDmrvmLU2hyc",
 		authDomain: "compkalakar1.firebaseapp.com",
@@ -20,6 +24,33 @@
 		};
 		firebase.initializeApp(config);
 		var db = firebase.database();
+        const inhere = document.querySelector("#scoreboard");
+        var rootref = db.ref().orderByChild('category').equalTo('Art');
+        rootref.once("value")
+        .then(function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			var key = childSnapshot.key;
+			var childData = childSnapshot.val();
+			var name = childData.name;
+			var likes = childData.likes;
+            var email = childData.email;
+            let parentele = document.createElement('div');
+            dict["name"] = name;
+            dict["likes"] = likes;
+            holder.push(dict);
+            parentele.innerHTML = likes + " <br> " + email + " <br> " + name + "<br><br>";
+            scoreboard.insertBefore(parentele, inhere.firstChild);
+            if(likes >= 0 && likes < 50){
+                console.log(likes + " lie in between " + "0 & 50")
+            } else{
+                console.log(likes + " does not lie in between " + "0 & 50")
+                console.log("check for 50 to 100")
+                if(likes >= 50 && likes < 100){
+                    console.log(likes + " lie in between " + "50 & 100")
+                }
+            }
+            });
 
+		});
     </script>
 </html>
