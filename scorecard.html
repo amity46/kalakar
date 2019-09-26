@@ -6,6 +6,7 @@
     </head>
     <body>
         <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
         <div>ART</div>
         <div id="scoreboard"></div>
     </body>
@@ -40,14 +41,19 @@
             holder.push(dict);
             parentele.innerHTML = likes + " <br> " + email + " <br> " + name + "<br><br>";
             scoreboard.insertBefore(parentele, inhere.firstChild);
-            if(likes >= 0 && likes < 50){
-                console.log(likes + " lie in between " + "0 & 50")
-            } else{
-                console.log(likes + " does not lie in between " + "0 & 50")
-                console.log("check for 50 to 100")
-                if(likes >= 50 && likes < 100){
-                    console.log(likes + " lie in between " + "50 & 100")
-                }
+            comparer = [
+                0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,
+                320,340,360,380,400,420,440,460,480,500,520,540,560,580,600,
+                620,640,660,680,700,720,740,760,780,800,820,840,860,880,900,
+                920,940,960,980,1000,1020
+            ];
+            if(likes in comparer){
+                likes += 0.000000001;
+            };
+            console.log(likes)
+            for (j = 0; j < comparer.length - 1; j++)
+            if((likes > comparer[j] || likes == comparer[j]) && likes < comparer[j+1]){
+                console.log("for like " + likes + " => " + Math.round((likes/comparer[j+1])*100) + " " + comparer[j+1])
             }
             });
 
